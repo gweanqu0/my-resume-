@@ -12,12 +12,11 @@ jobs:
  build:
    
     runs-on: ubuntu-latest
-steps:
-- uses: actions/checkout@v4
-- name: Build image 
-  run: docker build -t gweanqu0/myresume .
-
-- name: push image
-  run: |
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build image 
+      run: docker build -t gweanqu0/myresume .
+    - name: push image
+      run: |
        docker login -u gweanqu0 -p ${{secrets.REGISTRY_PASS}}
        docker push gweanqu0/myresume
